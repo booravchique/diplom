@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Расписание"
+        android:id="@+id/schelude"
+        android:icon="@drawable/ic_clipboardtext"/>
+    <item android:title="Оценки"
+        android:id="@+id/marks"
+        android:icon="@drawable/ic_five"/>
+    <item android:title="Чат"
+        android:id="@+id/chat"
+        android:icon="@drawable/ic_message"/>
+    <item android:title="Преподаватель"
+        android:id="@+id/prepod"
+        android:icon="@drawable/ic_teacher"/>
+    <item android:title="Профиль"
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_person"/>
+</menu>
