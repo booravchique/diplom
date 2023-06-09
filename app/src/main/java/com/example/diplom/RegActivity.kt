@@ -15,6 +15,8 @@ class RegActivity : AppCompatActivity() {
         binding = ActivityRegBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val db = RoomDBProfile.getDBProfile(this)
+
+        //Получение информации из полей
         binding.loginBtn.setOnClickListener {
             val personIn = ProfInfo(
                 null,
@@ -26,10 +28,12 @@ class RegActivity : AppCompatActivity() {
                 binding.personNumber.text.toString(),
                 binding.personPassword.text.toString(),
             )
+            //ввод информации в базу данных
             Thread{
                 db.getDao().insertItem(personIn)
             }.start()
 
+            //переход на главную страницу
             val i = Intent(this@RegActivity, MainActivity::class.java)
             startActivity(i)
         }

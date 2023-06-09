@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         replaceFragment(ScheludeFragment())
 
+        //Код выбора нужного фрагмента
         binding.bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.schelude -> replaceFragment(ScheludeFragment())
@@ -23,15 +24,13 @@ class MainActivity : AppCompatActivity() {
                 R.id.prepod -> replaceFragment(PrepFragment())
                 R.id.profile -> replaceFragment(ProfileFragment())
                 else -> {
-
                 }
             }
             true
         }
     }
-
+    //Код перехода между фрагментами
     private fun replaceFragment(fragment: Fragment){
-
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frame_layout, fragment)
