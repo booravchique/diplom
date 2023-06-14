@@ -6,13 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".MarksFragment">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_marks"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            tools:listitem="@layout/marks_by_class_layout"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            />
+            android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/screen_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="35dp"
+                    android:text="Преподаватели"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    android:textStyle="normal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_marks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="8dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@+id/screen_name"
+                    tools:listitem="@layout/marks_by_class_layout" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 </FrameLayout>

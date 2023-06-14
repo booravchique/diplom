@@ -13,5 +13,9 @@
     <color name="card_light_blue">#F7F9FA</color>
     <color name="marks_green">#B2EEB8</color>
     <color name="marks_green_text">#1C661A</color>
+    <color name="marks_yellow">#F9D4A0</color>
+    <color name="marks_yellow_text">#955200</color>
+    <color name="marks_red">#FF6670</color>
+    <color name="marks_red_text">#6A0000</color>
     <color name="main_color">#A220B8</color>
 </resources>

@@ -7,16 +7,16 @@
     tools:context=".RegActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/id_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="40dp"
         android:text="Регистрация"
-        android:textStyle="normal"
         android:textColor="@color/black"
         android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="normal"
+        app:layout_constraintStart_toEndOf="@+id/backBtn"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -32,7 +32,7 @@
         android:paddingRight="6dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/id_group" />
 
     <EditText
         android:id="@+id/personName"
@@ -135,6 +135,19 @@
         app:layout_constraintEnd_toEndOf="@+id/personPassword"
         app:layout_constraintStart_toStartOf="@+id/personPassword"
         app:layout_constraintTop_toBottomOf="@+id/personPassword" />
+
+    <ImageButton
+        android:id="@+id/backBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:padding="4dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/id_group"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/id_group"
+        app:srcCompat="@drawable/ic_back_btn"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

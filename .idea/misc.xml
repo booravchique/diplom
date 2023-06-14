@@ -3,19 +3,28 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/diplom/app/src/main/res/drawable/custom_date.xml" value="0.305" />
+        <entry key="..\:/diplom/app/src/main/res/drawable/custom_date_text.xml" value="0.305" />
         <entry key="..\:/diplom/app/src/main/res/drawable/custom_input.xml" value="0.306" />
         <entry key="..\:/diplom/app/src/main/res/drawable/custom_item.xml" value="0.306" />
+        <entry key="..\:/diplom/app/src/main/res/drawable/custom_rounded_corner_shape.xml" value="0.305" />
+        <entry key="..\:/diplom/app/src/main/res/drawable/ic_back_btn.xml" value="0.306" />
         <entry key="..\:/diplom/app/src/main/res/layout/activity_log_in.xml" value="0.25" />
         <entry key="..\:/diplom/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/diplom/app/src/main/res/layout/activity_reg.xml" value="0.28854166666666664" />
         <entry key="..\:/diplom/app/src/main/res/layout/activity_sign_up.xml" value="0.3026041666666667" />
         <entry key="..\:/diplom/app/src/main/res/layout/activity_splash_screen.xml" value="0.33" />
+        <entry key="..\:/diplom/app/src/main/res/layout/custom_rounded_corner_shape.xml" value="0.3026041666666667" />
         <entry key="..\:/diplom/app/src/main/res/layout/fragment_chat.xml" value="0.3026041666666667" />
         <entry key="..\:/diplom/app/src/main/res/layout/fragment_marks.xml" value="0.3026041666666667" />
-        <entry key="..\:/diplom/app/src/main/res/layout/fragment_prep.xml" value="0.3026041666666667" />
+        <entry key="..\:/diplom/app/src/main/res/layout/fragment_prep.xml" value="0.4488272921108742" />
         <entry key="..\:/diplom/app/src/main/res/layout/fragment_profile.xml" value="0.3026041666666667" />
+        <entry key="..\:/diplom/app/src/main/res/layout/fragment_sch_day_one.xml" value="0.5" />
+        <entry key="..\:/diplom/app/src/main/res/layout/fragment_sch_day_two.xml" value="0.28854166666666664" />
         <entry key="..\:/diplom/app/src/main/res/layout/fragment_schelude.xml" value="0.28854166666666664" />
         <entry key="..\:/diplom/app/src/main/res/layout/marks_by_class_layout.xml" value="0.3015625" />
+        <entry key="..\:/diplom/app/src/main/res/layout/schelude_frame_one.xml" value="0.3026041666666667" />
+        <entry key="..\:/diplom/app/src/main/res/layout/schelude_frame_two.xml" value="0.553519768563163" />
         <entry key="..\:/diplom/app/src/main/res/menu/bottom_nav.xml" value="0.3026041666666667" />
       </map>
     </option>

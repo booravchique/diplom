@@ -3,11 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     app:cardCornerRadius="12dp"
     android:layout_margin="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/marks_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -43,16 +44,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="Преподаватель:"
+                    android:text=""
                     android:textColor="@color/unactive_text_gray" />
 
-                <TextView
-                    android:id="@+id/tv_prep"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:text="temp2"
-                    android:textColor="@color/text_black"/>
             </LinearLayout>
 
         </LinearLayout>
@@ -64,7 +58,8 @@
             android:layout_marginEnd="12dp"
             android:padding="6dp"
             android:textSize="18sp"
-            android:background="@color/marks_green"
+            android:background="@drawable/custom_rounded_corner_shape"
+            android:backgroundTint="@color/marks_green"
             android:text="4,9"
             android:textColor="@color/marks_green_text"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -1,16 +1,14 @@
-package com.example.diplom
+package com.example
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentTransaction
-import androidx.fragment.app.FragmentTransitionImpl
-import kotlinx.android.synthetic.main.fragment_schelude.*
+import com.example.diplom.R
 
 
-class ScheludeFragment : Fragment() {
+class Sch_day_two : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,9 +20,7 @@ class ScheludeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_schelude, container, false)
-
+        return inflater.inflate(R.layout.fragment_sch_day_two, container, false)
     }
-
 
 }
