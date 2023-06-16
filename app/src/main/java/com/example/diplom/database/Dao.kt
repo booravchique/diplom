@@ -11,4 +11,6 @@ interface Dao {
     fun insertItem(item: ProfInfo)
     @Query("SELECT * FROM profInfo")
     fun getAllItem(): Flow<List<ProfInfo>>
+    @Query("SELECT personName, personSurname, personMiddleName, personCollage, personGroup, personNumber, personPassword, MAX(id) FROM profInfo LIMIT 1")
+    fun getLastItem(): ProfInfo
 }

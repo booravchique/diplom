@@ -15,11 +15,11 @@ data class ProfInfo (
     @ColumnInfo(name = "personMiddleName")
     var middleName: String,
     @ColumnInfo(name = "personCollage")
-    var studyAt: String,
+    var collage: String,
     @ColumnInfo(name = "personGroup")
     var group: String,
     @ColumnInfo(name = "personNumber")
-    var Birthday: String,
+    var Number: String,
     @ColumnInfo(name = "personPassword")
     var Email: String,
         )
