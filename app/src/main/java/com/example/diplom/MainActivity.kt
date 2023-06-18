@@ -1,19 +1,23 @@
 package com.example.diplom
 
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.diplom.databinding.ActivityLogInBinding
 import com.example.diplom.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
+    var preff: SharedPreferences?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         replaceFragment(ScheludeFragment())
+        preff = getSharedPreferences("userId", MODE_PRIVATE)
 
         //Код выбора нужного фрагмента
         binding.bottomNavigationView.setOnItemSelectedListener {

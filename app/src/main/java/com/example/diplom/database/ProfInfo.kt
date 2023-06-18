@@ -21,5 +21,5 @@ data class ProfInfo (
     @ColumnInfo(name = "personNumber")
     var Number: String,
     @ColumnInfo(name = "personPassword")
-    var Email: String,
-        )
+    var Password: String,
+)

@@ -1,6 +1,7 @@
 package com.example.diplom
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
@@ -13,11 +14,16 @@ import com.example.diplom.databinding.ActivityRegBinding
 
 class RegActivity : AppCompatActivity() {
     lateinit var binding: ActivityRegBinding
+    var preff: SharedPreferences?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         val db = RoomDBProfile.getDBProfile(this)
+
+        preff = getSharedPreferences("userId", MODE_PRIVATE)
+        var phone: String
 
         //Получение информации из полей
         binding.loginBtn.setOnClickListener {
@@ -32,60 +38,25 @@ class RegActivity : AppCompatActivity() {
                 binding.personPassword.text.toString().filter { !it.isWhitespace() },
             )
 
-            //проверка на пустые поля
-            var isEmpty: Boolean
-
-            if(binding.personName.text.toString().isNullOrEmpty()) {
-                isEmpty = true
-            } else {
-                isEmpty = false
-            }
-            if(binding.personSurname.text.toString().isNullOrEmpty()) {
-                isEmpty = true
-            } else {
-                isEmpty = false
-            }
-            if(binding.personMiddleName.text.toString().isNullOrEmpty()) {
-                isEmpty = true
-            } else {
-                isEmpty = false
-            }
-            if(binding.personCollege.text.toString().isNullOrEmpty()) {
-                isEmpty = true
-            } else {
-                isEmpty = false
-            }
-            if(binding.personGroup.text.toString().isNullOrEmpty()) {
-                isEmpty = true
-            } else {
-                isEmpty = false
-            }
-            if(binding.personNumber.text.toString().isNullOrEmpty()) {
-                isEmpty = true
-            } else {
-                isEmpty = false
-            }
-            if(binding.personPassword.text.toString().isNullOrEmpty()) {
-                isEmpty = true
-            } else {
-                isEmpty = false
-            }
 
             //ввод информации в базу данных
-            if(isEmpty){
+            if(binding.personPassword.text.toString().filter { !it.isWhitespace() }.isNullOrEmpty() || binding.personNumber.text.toString().filter { !it.isWhitespace() }.isNullOrEmpty() || binding.personGroup.text.toString().filter { !it.isWhitespace() }.isNullOrEmpty() ||
+                binding.personCollege.text.toString().filter { !it.isWhitespace() }.isNullOrEmpty() || binding.personMiddleName.text.toString().filter { !it.isWhitespace() }.isNullOrEmpty() || binding.personMiddleName.text.toString().filter { !it.isWhitespace() }.isNullOrEmpty()||
+                binding.personName.text.toString().filter { !it.isWhitespace() }.isNullOrEmpty()){
                 val t = Toast.makeText(this, "У Вас есть незаполненные поля", Toast.LENGTH_SHORT)
                 t.show()
             } else {
+                phone =  binding.personNumber.text.toString()
                 Thread {
                     db.getDao().insertItem(personIn)
                 }.start()
+                val editor = preff?.edit()
+                editor?.putString("key1", phone)
+                editor?.apply()
                 //переход на главную страницу
                 val i = Intent(this@RegActivity, MainActivity::class.java)
                 startActivity(i)
             }
-
-
-
 
         }
         //переход назад

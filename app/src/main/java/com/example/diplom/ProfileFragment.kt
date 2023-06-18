@@ -1,6 +1,10 @@
 package com.example.diplom
 
+import android.app.Activity
+import android.content.Context
+import android.content.Context.MODE_PRIVATE
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -8,6 +12,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.constraintlayout.helper.widget.Flow
 import androidx.lifecycle.asLiveData
 import com.example.diplom.database.ProfInfo
@@ -23,14 +28,14 @@ import kotlinx.coroutines.withContext
 
 class ProfileFragment : Fragment() {
 
-//    lateinit var binding: FragmentProfileBinding
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
+    var preff: SharedPreferences? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        Log.d("msg", "jhgjghjhgjasd")
 
     }
 
@@ -38,53 +43,44 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_profile, container, false)
-//        val view: View = inflater!!.inflate(R.layout.fragment_profile, container, false)
-        _binding = FragmentProfileBinding.inflate(inflater,  container,false)
+        preff = activity?.getSharedPreferences("userId", MODE_PRIVATE)
+        val number = preff?.getString("key1", "not found")
+//        val t = Toast.makeText(requireContext(), i, Toast.LENGTH_SHORT)
+//        t.show()
 
 
+        _binding = FragmentProfileBinding.inflate(inflater, container, false)
         binding.logout.setOnClickListener {
             val i = Intent(requireContext(), LogInActivity::class.java)
             startActivity(i)
+            activity?.finish()
         }
 
-        Log.d("msg", "jhgjghjh7567gjasd")
-
-        Log.d("msg", "a3333sd")
-        val db = RoomDBProfile.getDBProfile(requireContext())
         GlobalScope.launch {
-//            db.getDao().getLastItem().asLiveData().observe(viewLifecycleOwner) {
-//                val info = it[0].name
-//                binding.personName.text = info
-//                Log.d("msg", "${info}")
-//                Log.d("msg", "asd")
-//            }
-            fromDB()
+            fromDB(number)
         }
 
-
-//        return view
         return binding.root
     }
 
-    suspend fun fromDB() {
+    suspend fun fromDB(number: String?) {
         val db = RoomDBProfile.getDBProfile(requireContext())
         lateinit var info: ProfInfo
-//        db.getDao().getLastItem().asLiveData().observe(viewLifecycleOwner) {
-//            val info = it[0].name
-//            binding.personName.text = info
-//            Log.d("msg", "${info}")
-//            Log.d("msg", "asd")
-//        }
-        GlobalScope.launch {
-            info = db.getDao().getLastItem()
-            displayData(info)
+
+        if (number.isNullOrEmpty()) {
+            val t = Toast.makeText(requireContext(), "unknown error", Toast.LENGTH_SHORT)
+            t.show()
+        } else {
+            GlobalScope.launch {
+                info = db.getDao().getInfoByNumber(number)
+                displayData(info)
+            }
         }
+
     }
 
     private suspend fun displayData(info: ProfInfo) {
-        withContext(Dispatchers.Main){
+        withContext(Dispatchers.Main) {
             binding.personName.text = info.name
             binding.personSurname.text = info.surname
             binding.personNumber.text = info.Number
@@ -92,5 +88,4 @@ class ProfileFragment : Fragment() {
             binding.personCollege.text = info.collage
         }
     }
-
 }
